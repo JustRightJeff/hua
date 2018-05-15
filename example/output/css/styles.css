@@ -1,0 +1,33 @@
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2 {
+	font-weight: 300;
+}
+
+h1 a, h2 a {
+	text-decoration: none;
+}
+
+p {
+	font-size: .85em;
+}
+
+.tags {
+	padding-left: 0;
+	font-size: .85em;
+}
+
+.tags li {
+	display: inline-block;
+	margin-right: .9em;
+	background-color: #e1e1e1;
+	padding: 6px;
+	border-radius: 3px;
+}
+
+.tags li a {
+	color: #666;
+	text-decoration: none;
+}
