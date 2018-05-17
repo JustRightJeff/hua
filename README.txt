@@ -96,22 +96,6 @@ Future & Contributing
    You can contribute to Hua's development by [19]suggesting improvements,
    [20]reporting issues, or [21]writing code.
 
-   Just Right UX LLC
-
-
-    111 Bowman Ave
-    Tipp City, OH 45371   USA
-    937.703.3947
-
-   Email Us
-     * Sales:  [22]solutions@justrightux.com
-     * Press:  [23]communications@justrightux.com
-
-   Follow Us
-     * [24]Twitter
-
-   [25]Just Right UX Logo Copyright � 2017 - 2018 Just Right UX LLC
-
 References
 
    7. https://translate.google.com/?client=safari&rls=en&bav=on.2,or.&biw=1240&bih=907&um=1&ie=UTF-8&hl=en&client=tw-ob#auto/zh-CN/flower
@@ -129,7 +113,3 @@ References
   19. mailto:jeff@justrightux.com
   20. https://github.com/JustRightJeff/hua/issues
   21. https://github.com/JustRightJeff/hua
-  22. mailto:solutions@justrightux.com
-  23. mailto:communications@justrightux.com
-  24. https://twitter.com/JustRightUX
-  25. http://justrightux.com/
