@@ -1,4 +1,4 @@
-Hua: A Simple Static Content Generator
+TestHua: A Simple Static Content Generator
 
 Hua Basics
 
