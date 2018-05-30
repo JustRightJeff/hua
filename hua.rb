@@ -121,7 +121,12 @@ index.write(header.sub '~~article_title~~', '')
 
 entries.drop(1).each {
 	|entry|
-		
+	
+	# Skip blank lines
+	if (entry =~ /^$/)
+		next
+	end
+	
 	attributes = entry.split ','
 	
 	id = attributes[0]                  # Unix epoch (date +%s)
