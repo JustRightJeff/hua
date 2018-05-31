@@ -184,30 +184,33 @@ entries.drop(1).each {
 	index.write(read_more.sub! '~~link~~', @blog_root + article_fn)
 	
 	#
-	# Create the permalink file
+	# Create the permalink file if it doesn't exist in the output_dir
 	#
 	permalink_path = File.join(@output_dir, article_fn)
-	permalink = File.open(permalink_path, 'w')
-
-	# "Reset" header content so title can be properly substituted
-	header = File.read(@header_file)
-	header.sub! '~~article_title~~', ' / ' + article_title
-	permalink.write(header)
-	permalink.write(article_content)
-
-	# Substitute values in comments include (or warn and continue if comments file isn't found
-	if File.file?(@comments_file)
-		comments = File.read(@comments_file)
-		comments = comments.sub! '~~this.page.url~~', @web_root + @blog_root + article_fn
-		comments = comments.sub! '~~this.page.identifier~~', id
-	else
-		puts "Comments file error. Comments file path set as " + @comments_file + ". Continuing."
-		comments = ""
+	
+	if not File.file?(permalink_path)		
+		permalink = File.open(permalink_path, 'w')
+	
+		# "Reset" header content so title can be properly substituted
+		header = File.read(@header_file)
+		header.sub! '~~article_title~~', ' / ' + article_title
+		permalink.write(header)
+		permalink.write(article_content)
+	
+		# Substitute values in comments include (or warn and continue if comments file isn't found
+		if File.file?(@comments_file)
+			comments = File.read(@comments_file)
+			comments = comments.sub! '~~this.page.url~~', @web_root + @blog_root + article_fn
+			comments = comments.sub! '~~this.page.identifier~~', id
+		else
+			puts "Comments file error. Comments file path set as " + @comments_file + ". Continuing."
+			comments = ""
+		end
+		permalink.write(comments)
+	
+		permalink.write(footer)
+		permalink.close
 	end
-	permalink.write(comments)
-
-	permalink.write(footer)
-	permalink.close
 	
 	# 
 	# Tag specific files
