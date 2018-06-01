@@ -23,11 +23,19 @@ if ARGV[0]
 		exit 1
 	end
 else
-	puts "Usage: " + File.join('.', 'hua.rb') + " [path to config file]"
+	puts "Usage: " + File.join('.', 'hua.rb') + " [path to config file] [optional: -o|--orphans]"
 	exit 1
 end 
 
-# Chech to make sure all file/config vars are defined or quit
+# Orphans flag passed as second argument
+orphans_mode = 0
+if ARGV[1]
+	if (ARGV[1] == "-o" or ARGV[1] == "--orphans")
+		orphans_mode = 1
+	end
+end
+
+# Check to make sure all file/config vars are defined or quit
 config_vars = ['@entries_file', '@content_dir', '@output_dir', '@index_file', '@include_dir', '@header_file', '@footer_file', '@read_more_file', '@comments_file', '@tags_file', '@blog_root', '@web_root']
 
 config_vars.each {
@@ -61,6 +69,40 @@ def process_tags(tag_array)
 	}
 	
 	return tags_list
+end
+
+#
+# list_orphans
+#
+# 	input:	contents of entries_file, an array of output_dir article filenames
+#	output: a list of orphans to stdout
+#
+
+def list_orphans(entries, output_articles)
+	entries_fns = Array.new
+	
+	# Get the entries_file article filenames
+	entries.drop(1).each {
+		|entry|
+		
+		# Skip blank lines
+		if (entry =~ /^$/)
+			next
+		end
+		
+		attributes = entry.split ','
+		entries_fn = attributes[2].strip    # File name of the article
+		entries_fns.push(File.join(@output_dir, entries_fn))
+	}
+	
+	# Check for the existence of the output article in the entries
+	output_articles.each {
+		|output_article|
+		if not (entries_fns.include? output_article)
+			puts output_article	
+		end
+	} 
+	
 end
 
 # Get the header content (or fail)
@@ -105,6 +147,12 @@ Dir.glob(File.join(@output_dir, "tagged-with-*")) {
 	|file|
 	File.delete(file)
 }
+
+# Orphans mode? Then get a list of files currently in the output directory
+if (orphans_mode == 1)
+	output_articles = Dir.glob(File.join(@output_dir, "*.html"))
+	list_orphans(entries, output_articles)
+end
 
 #
 # Loop over the entries (skip the first) and output the content

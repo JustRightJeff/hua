@@ -91,12 +91,16 @@ Additional Usage Information
 
      * If you want Hua to regenerate an existing article, delete the
        appropriate article file in the output_dir and run Hua again.
+     * Pass -o or --orphans as the second argument to list files in the
+       output_dir that are not referenced in the entries_file.
 
 Future & Contributing
 
    Possible future enhancements include:
      * Markdown support
-     * Orphaned article reporting/cleanup
+
+   You can contribute to Hua's development by [19]suggesting improvements,
+   [20]reporting issues, or [21]writing code.
 
 References
 
