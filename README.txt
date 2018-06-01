@@ -87,20 +87,22 @@ Errors
      * An article content file doesn't exist. Hua will continue to the
        next article.
 
+Additional Usage Information
+
+     * If you want Hua to regenerate an existing article, delete the
+       appropriate article file in the output_dir and run Hua again.
+
 Future & Contributing
 
    Possible future enhancements include:
      * Markdown support
      * Orphaned article reporting/cleanup
 
-   You can contribute to Hua's development by [19]suggesting improvements,
-   [20]reporting issues, or [21]writing code.
-
 References
 
    7. https://translate.google.com/?client=safari&rls=en&bav=on.2,or.&biw=1240&bih=907&um=1&ie=UTF-8&hl=en&client=tw-ob#auto/zh-CN/flower
-   8. http://justrightux.com/
-   9. http://justrightux.com/blog
+   8. http://callisto.local/
+   9. http://callisto.local/blog
   10. https://www.ruby-lang.org/en/
   11. http://blosxom.sourceforge.net/
   12. https://disqus.com/
