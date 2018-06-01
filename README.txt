@@ -105,8 +105,8 @@ Future & Contributing
 References
 
    7. https://translate.google.com/?client=safari&rls=en&bav=on.2,or.&biw=1240&bih=907&um=1&ie=UTF-8&hl=en&client=tw-ob#auto/zh-CN/flower
-   8. http://callisto.local/
-   9. http://callisto.local/blog
+   8. http://justrightux.com/
+   9. http://justrightux.com/blog
   10. https://www.ruby-lang.org/en/
   11. http://blosxom.sourceforge.net/
   12. https://disqus.com/
