@@ -32,6 +32,9 @@ orphans_mode = 0
 if ARGV[1]
 	if (ARGV[1] == "-o" or ARGV[1] == "--orphans")
 		orphans_mode = 1
+	else
+		puts "Usage: " + File.join('.', 'hua.rb') + " [path to config file] [optional: -o|--orphans]"
+		exit 1
 	end
 end
 
