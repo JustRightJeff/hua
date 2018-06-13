@@ -92,7 +92,9 @@ Additional Usage Information
      * If you want Hua to regenerate an existing article, delete the
        appropriate article file in the output_dir and run Hua again.
      * Pass -o or --orphans as the second argument to list files in the
-       output_dir that are not referenced in the entries_file.
+       output_dir that are not referenced in the entries_file. If there
+       are no orphans, nothing is output. Content is not processed in this
+       mode.
 
 Future & Contributing
 
