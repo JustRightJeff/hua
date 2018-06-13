@@ -101,11 +101,12 @@ def list_orphans(entries, output_articles)
 	# Check for the existence of the output article in the entries
 	output_articles.each {
 		|output_article|
-		if not (entries_fns.include? output_article)
+		
+		# Ignore tagged-with and the index file
+		if not (entries_fns.include? output_article) and not ( output_article =~ /tagged-with-/)  and not ( output_article == @index_file)
 			puts output_article	
 		end
 	} 
-	
 end
 
 # Get the header content (or fail)
@@ -134,15 +135,22 @@ else
 	exit 1
 end
 
-# Remove the previous index file
-if File.exists?(@index_file) 
-	File.delete(@index_file)
-end
-
 # Check to see if the output dir exists. Quit if it doesn't
 if not Dir.exists?(@output_dir)
 	puts "Output directory error. Output directory path set as " + @output_dir + ". Quitting."
 	exit 1
+end
+
+# Orphans mode? Then get a list of files currently in the output directory
+if (orphans_mode == 1)
+	output_articles = Dir.glob(File.join(@output_dir, "*.html"))
+	list_orphans(entries, output_articles)
+	exit 0
+end
+
+# Remove the previous index file
+if File.exists?(@index_file) 
+	File.delete(@index_file)
 end
 
 # Remove the previous "tagged-with" file(s)
@@ -150,12 +158,6 @@ Dir.glob(File.join(@output_dir, "tagged-with-*")) {
 	|file|
 	File.delete(file)
 }
-
-# Orphans mode? Then get a list of files currently in the output directory
-if (orphans_mode == 1)
-	output_articles = Dir.glob(File.join(@output_dir, "*.html"))
-	list_orphans(entries, output_articles)
-end
 
 #
 # Loop over the entries (skip the first) and output the content
