@@ -182,9 +182,24 @@ entries.drop(1).each {
 	
 	attributes = entry.split ','
 	
-	id = attributes[0]                  # Unix epoch (date +%s)
+	# Article ID
+	if not attributes[0] == ""
+		id = attributes[0]
+	else 
+		puts "Entries file error. There is an entry without an ID. Skipping." 
+		next 
+	end
+
 	if not attributes[1] == "" then article_title = attributes[1] else article_title = "No Title" end # Article title
-	article_fn = attributes[2].strip    # File name of the article in the content_dir
+	
+	# File name of the article in the content_dir
+	if not attributes[2] == ""
+		article_fn = attributes[2]
+	else 
+		puts "Entries file error. There is an entry without a filename. Skipping." 
+		next 
+	end
+	
 	tags = attributes[3].split '|'      # Article-specific tags
 	article_date = attributes[4]        # Article date
 	author = attributes[5]              # Author name
