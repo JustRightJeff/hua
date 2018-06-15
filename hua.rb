@@ -203,7 +203,7 @@ entries.drop(1).each {
 	if attributes[3] then tags = attributes[3].split '|' else tags = Array.new end                    # Article tags
 	if attributes[4] then article_date = attributes[4] else article_date = "" end                     # Article date
 	if attributes[5] then author = attributes[5] else author = "" end                                 # Author name
-	if attributes[6] then contact = attributes[6] else contact = "" end                               # Author email
+	if attributes[6] then contact = attributes[6].strip else contact = "" end                         # Author email
 	
 	# Array for the article tag list
 	article_tags = Array.new
