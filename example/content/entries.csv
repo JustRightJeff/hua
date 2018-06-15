@@ -5,4 +5,8 @@ ID (date +%s),Title,File,Tags,Date,Author,Contact
 1526382309,The Latest Article,article-4.html,Example,Tue May 15 2018,Author Name,author@domain.com
 ,no id test,,,,
 1528936831,,untitled-article.html,Example|Testing,Sat Jun 2 2018,Author Name,author@domain.com
+
 1529024211,No Tags,no-tags-test.html,,Sun Jun 3 2018,Author Name,author@domain.com
+1529061893,Empty Fields Test,empty-fields-test.html,,,,
+,,,,,,
+1529067325,,,,,,
