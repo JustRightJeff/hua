@@ -94,7 +94,14 @@ def list_orphans(entries, output_articles)
 		end
 		
 		attributes = entry.split ','
-		entries_fn = attributes[2].strip    # File name of the article
+
+		if attributes[2]
+			entries_fn = attributes[2]
+		else 
+			puts "Entries file error. There is an entry without a filename. Skipping."
+			next 
+		end
+
 		entries_fns.push(File.join(@output_dir, entries_fn))
 	}
 	
