@@ -183,27 +183,27 @@ entries.drop(1).each {
 	attributes = entry.split ','
 	
 	# Article ID
+	#if attributes[0] and not attributes[0] == ""
 	if not attributes[0] == ""
 		id = attributes[0]
 	else 
 		puts "Entries file error. There is an entry without an ID. Skipping." 
 		next 
 	end
-
-	if not attributes[1] == "" then article_title = attributes[1] else article_title = "No Title" end # Article title
-	
+		
 	# File name of the article in the content_dir
-	if not attributes[2] == ""
+	if attributes[2]
 		article_fn = attributes[2]
 	else 
-		puts "Entries file error. There is an entry without a filename. Skipping." 
+		puts "Entries file error. There is an entry without a filename. Skipping."
 		next 
 	end
-	
-	tags = attributes[3].split '|'      # Article-specific tags
-	article_date = attributes[4]        # Article date
-	author = attributes[5]              # Author name
-	contact = attributes[6].strip       # Author email
+
+	if not attributes[1] == "" then article_title = attributes[1] else article_title = "No Title" end # Article title	
+	if attributes[3] then tags = attributes[3].split '|' else tags = Array.new end                    # Article tags
+	if attributes[4] then article_date = attributes[4] else article_date = "" end                     # Article date
+	if attributes[5] then author = attributes[5] else author = "" end                                 # Author name
+	if attributes[6] then contact = attributes[6] else contact = "" end                               # Author email
 	
 	# Array for the article tag list
 	article_tags = Array.new
