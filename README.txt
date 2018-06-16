@@ -86,9 +86,9 @@ Errors
      * The read more/comments include doesn't exist. Hua will continue.
      * An article content file doesn't exist. Hua will continue to the
        next article.
-     * The ID column for an entry in the entries file is empty. Hua will
+     * The ID field of an entry in the entries file is empty. Hua will
        continue to the next article.
-     * The file column for an entry in the entries file is empty. Hua will
+     * The file field of an entry in the entries file is empty. Hua will
        continue to the next article.
 
 Additional Usage Information
